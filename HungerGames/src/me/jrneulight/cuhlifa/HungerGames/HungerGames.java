@@ -60,8 +60,8 @@ public class HungerGames extends JavaPlugin implements Listener{
 			ios = new ObjectInputStream(new FileInputStream(file));
 			ArenaData ad = (ArenaData) ios.readObject();
 			System.out.println(ad.getWorld());
-			Location l = new Location(Bukkit.getWorld(ad.getWorld()) , ad.getX() , ad.getY() , ad.getZ());
-			e.getPlayer().teleport(l);
+//			Location l = new Location(Bukkit.getWorld(ad.getWorld()) , ad.getX() , ad.getY() , ad.getZ());
+//			e.getPlayer().teleport(l);
 			
 		} catch (FileNotFoundException e1) {
 			// TODO Auto-generated catch block
