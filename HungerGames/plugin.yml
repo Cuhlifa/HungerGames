@@ -1,0 +1,9 @@
+main: me.jrneulight.cuhlifa.HungerGames.HungerGames
+name: Economy
+version: 1.1
+description: Economy
+commands:
+   bal:
+     description: return balance
+   pay:
+     description: pay other players
