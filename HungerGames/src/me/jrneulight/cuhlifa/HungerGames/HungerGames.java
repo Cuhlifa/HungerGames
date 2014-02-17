@@ -39,14 +39,13 @@ public class HungerGames extends JavaPlugin implements Listener{
 	@EventHandler
 	public void onConnect(PlayerJoinEvent e){
 		
-		System.out.println("1");
+		ssdfdsffsddsfs
 		
 		try {
 			oos = new ObjectOutputStream(new FileOutputStream(file));
 			oos.writeObject(new ArenaData(1, 10, 0,e.getPlayer().getLocation().getX(),e.getPlayer().getLocation().getY(),e.getPlayer().getLocation().getZ(), e.getPlayer().getLocation().getWorld().getName()));
 			oos.flush();
 			oos.close();
-			System.out.println("2");
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
