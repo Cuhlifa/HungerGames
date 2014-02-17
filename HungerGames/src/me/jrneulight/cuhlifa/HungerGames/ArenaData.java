@@ -1,8 +1,8 @@
 package me.jrneulight.cuhlifa.HungerGames;
 
 import java.io.Serializable;
-
-import org.bukkit.Location;
+import java.util.ArrayList;
+import java.util.UUID;
 
 public class ArenaData implements Serializable{
 
@@ -11,26 +11,22 @@ public class ArenaData implements Serializable{
 	 */
 	private static final long serialVersionUID = -5401904117410620779L;
 	
-	private String world;
+	private UUID world;
 	private int ID, maxPlayers,currentPlayers;
-	private double x,y,z;
+	private ArrayList<SpawnData> spawndata = new ArrayList<SpawnData>();
+	private ArrayList<PlayerData> playerdata = new ArrayList<PlayerData>();
 	
-	public ArenaData(int ID, int maxPlayers, int currentPlayers,double x,double y,double z,String world){
+	public ArenaData(int ID, int maxPlayers, int currentPlayers,ArrayList<SpawnData> spawndata,UUID world){
 		
 		this.currentPlayers = currentPlayers;
 		this.ID = ID;
 		this.world = world;
 		this.maxPlayers = maxPlayers;
-		this.x = x;
-		this.y = y;
-		this.z = z;
+		this.spawndata = spawndata;
 		
 	}
 	
 	public int getID(){return ID;}
-	public double getX(){return x;}
-	public double getY(){return y;}
-	public double getZ(){return z;}
-	public String getWorld(){return world;}
+	public UUID getWorld(){return world;}
 
 }

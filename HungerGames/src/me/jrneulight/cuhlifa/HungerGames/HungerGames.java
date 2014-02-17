@@ -9,6 +9,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
+import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -34,31 +36,12 @@ public class HungerGames extends JavaPlugin implements Listener{
 		
 	}
 	
-	@EventHandler
-	public void onConnect(PlayerJoinEvent e){
-		
-		ssdfdsffsddsfs
-		
-		try {
-			oos = new ObjectOutputStream(new FileOutputStream(file));
-			oos.writeObject(new ArenaData(1, 10, 0,e.getPlayer().getLocation().getX(),e.getPlayer().getLocation().getY(),e.getPlayer().getLocation().getZ(), e.getPlayer().getLocation().getWorld().getName()));
-			oos.flush();
-			oos.close();
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		
-	}
-	@EventHandler
-	public void isMoving(PlayerMoveEvent e){
+	public Object load(){
 		
 		try {
 			ios = new ObjectInputStream(new FileInputStream(file));
-			ArenaData ad = (ArenaData) ios.readObject();
-			System.out.println(ad.getWorld());
-//			Location l = new Location(Bukkit.getWorld(ad.getWorld()) , ad.getX() , ad.getY() , ad.getZ());
-//			e.getPlayer().teleport(l);
+			return ios.readObject();
+
 			
 		} catch (FileNotFoundException e1) {
 			// TODO Auto-generated catch block
@@ -69,7 +52,26 @@ public class HungerGames extends JavaPlugin implements Listener{
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+		return null;
 		
 	}
+	
+	public void save(Object o){
+		
+		try {
+			oos = new ObjectOutputStream(new FileOutputStream(file));
+			oos.writeObject(o);
+			oos.flush();
+			oos.close();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+	}
+	
+
+		
+
 
 }
